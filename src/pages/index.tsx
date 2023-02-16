@@ -96,7 +96,7 @@ const initOptions = {
     //methods
     const fetchCities = async (query:string, cb:Function) =>  {
       setLoading(true);
-      return fetch(`http://localhost:3000/api/search?key=${query}`)
+      return fetch(`/api/search?key=${query}`)
       .then(async response => {
         const data = await response.json();
         setLoading(false);
@@ -117,7 +117,7 @@ const initOptions = {
       const {origin, intermediate, destination} = comboSelectedValue;
       const citiesName = [origin, destination, ...intermediate];
       setIsSubmitting(true);
-      fetch(`http://localhost:3000/api/calculate`,{
+      fetch(`/api/calculate`,{
       method: 'POST', 
       headers: {
         'Content-Type': 'application/json',
