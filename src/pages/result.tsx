@@ -1,9 +1,8 @@
-import styles from './index.module.css'
 import { useQueryParams } from '@/hooks/useQueryParams';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import format from 'date-fns/format';
+import styles from './index.module.css'
 
  const Result = () =>  {
   const {queryParams}= useQueryParams() as any;
@@ -11,7 +10,6 @@ import format from 'date-fns/format';
   const tripDate = !!queryParams?.date? format(new Date(JSON.parse(queryParams?.date)), 'yyyy-MM-dd') :'N/A';
     return (
         <main> 
-          
           <Grid container>
               <Grid item xs={3} />
               <Grid item xs={6}>
@@ -19,33 +17,33 @@ import format from 'date-fns/format';
                     <h1>Route Search Result</h1>
                     <Grid item sx={{minWidth:200}}>
                     <Box display="flex" alignItems="center">
-                     <Typography className={styles.property} variant='body1'>Origin city:</Typography>
-                     <Typography className={styles.value} variant='body2'>{queryParams?.origin}</Typography>
+                     <p className={styles.property} >Origin city:</p>
+                     <p className={styles.value}>{queryParams?.origin}</p>
                     </Box>
                     <hr />
                     <Box display="flex" alignItems="center">
-                     <Typography className={styles.property} variant='body1'>Destination city:</Typography>
-                     <Typography className={styles.value} variant='body2'>{queryParams?.destination}</Typography>
+                     <p className={styles.property} >Destination city:</p>
+                     <p className={styles.value}>{queryParams?.destination}</p>
                     </Box>
                      <hr />
                     <Box display="flex" alignItems="center">
-                     <Typography className={styles.property} variant='body1'>Intermediate cities:</Typography>
-                     <Typography className={styles.value} variant='body2'>{cities}</Typography>
+                     <p className={styles.property} >Intermediate cities:</p>
+                     <p className={styles.value}>{cities}</p>
                     </Box>
                      <hr />
                     <Box display="flex" alignItems="center">
-                     <Typography className={styles.property} variant='body1'>Trip Date:</Typography>
-                     <Typography className={styles.value} variant='body2'>{tripDate}</Typography>
+                     <p className={styles.property} >Trip Date:</p>
+                     <p className={styles.value}>{tripDate}</p>
                     </Box>
                      <hr />
                     <Box display="flex" alignItems="center">
-                     <Typography className={styles.property} variant='body1'>Passengers:</Typography>
-                     <Typography className={styles.value} variant='body2'>{queryParams?.passengers}</Typography>
+                     <p className={styles.property} >Passengers:</p>
+                     <p className={styles.value}>{queryParams?.passengers}</p>
                     </Box>
                     <hr />
                     <Box display="flex" alignItems="center">
-                     <Typography className={styles.property} variant='body1'>The total route distance is:</Typography>
-                     <Typography className={styles.distance} variant='body2'>{queryParams?.distance} KM</Typography>
+                     <p className={styles.property} >The total route distance is:</p>
+                     <p className={styles.distance}>{queryParams?.distance} KM</p>
                     </Box>
                     </Grid>
           </Grid>
