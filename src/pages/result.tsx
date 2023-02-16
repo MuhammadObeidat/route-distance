@@ -2,7 +2,7 @@ import styles from './index.module.css'
 import { useQueryParams } from '@/hooks/useQueryParams';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import { Typography } from '@mui/material';
+import Typography from '@mui/material/Typography';
 import format from 'date-fns/format';
 
  const Result = () =>  {
@@ -11,7 +11,11 @@ import format from 'date-fns/format';
   const tripDate = !!queryParams?.date? format(new Date(JSON.parse(queryParams?.date)), 'yyyy-MM-dd') :'N/A';
     return (
         <main> 
-          <Grid className={styles.container} container spacing={5} alignItems="center" justifyContent="center" direction="column" >
+          
+          <Grid container>
+              <Grid item xs={3} />
+              <Grid item xs={6}>
+              <Grid className={styles.container} container spacing={5} alignItems="center" justifyContent="center" direction="column" >
                     <h1>Route Search Result</h1>
                     <Grid item sx={{minWidth:200}}>
                     <Box display="flex" alignItems="center">
@@ -45,6 +49,10 @@ import format from 'date-fns/format';
                     </Box>
                     </Grid>
           </Grid>
+              </Grid>
+              <Grid item xs={3} />
+            </Grid>
+     
         </main>
     );
 }

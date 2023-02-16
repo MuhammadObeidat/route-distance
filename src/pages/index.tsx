@@ -236,8 +236,11 @@ const initOptions = {
 
     return (
       <main> 
-            <form onSubmit={handleSubmit}>
-                <Grid className={styles.container} container spacing={5} alignItems="center" justifyContent="center" direction="column" >
+            <Grid container>
+              <Grid item xs={3} />
+              <Grid item xs={6}>
+              <form onSubmit={handleSubmit}>
+                <Grid className={styles.container}  container spacing={5} alignItems="center" justifyContent="center" direction="column" >
                     <h1>Search to know the distance of a route</h1>
                     <Grid item>
                     <Autocomplete
@@ -309,6 +312,9 @@ const initOptions = {
                     </Grid>
                 </Grid>
             </form>
+              </Grid>
+              <Grid item xs={3} />
+            </Grid>
             <Snackbar
                anchorOrigin={{ vertical:'top', horizontal:'right' }}
                 open={alertVisible}
