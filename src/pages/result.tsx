@@ -9,10 +9,10 @@ import styles from './index.module.css'
   const cities = !!queryParams?.intermediate? JSON.parse(queryParams?.intermediate).map((c:string, idx:number)=> `${c}${idx !== JSON.parse(queryParams?.intermediate).length-1?' & ':''}`):"N/A";
   const tripDate = !!queryParams?.date? format(new Date(JSON.parse(queryParams?.date)), 'yyyy-MM-dd') :'N/A';
     return (
-        <main> 
+      <main className={styles.main}> 
           <Grid container>
-              <Grid item xs={3} />
-              <Grid item xs={6}>
+              <Grid item xs={4} />
+              <Grid item xs={4}>
               <Grid className={styles.container} container spacing={5} alignItems="center" justifyContent="center" direction="column" >
                     <h1>Route Search Result</h1>
                     <Grid item sx={{minWidth:200}}>
@@ -48,7 +48,7 @@ import styles from './index.module.css'
                     </Grid>
           </Grid>
               </Grid>
-              <Grid item xs={3} />
+              <Grid item xs={4} />
             </Grid>
      
         </main>

@@ -235,7 +235,7 @@ const initOptions = {
      } ,[date, comboSelectedValue, isSubmiting]);
 
     return (
-      <main> 
+      <main className={styles.main}> 
             <Grid container>
               <Grid item xs={3} />
               <Grid item xs={6}>
@@ -307,7 +307,7 @@ const initOptions = {
                     </Grid>
                     <Grid item>
                         <Button disabled={submitDisabled} className={styles.submitBtn} variant="contained" color="primary" type="submit">
-                          {isSubmiting? 'Loading ...':'Search'}
+                          {isSubmiting? 'Loading ...':'Calculate'}
                         </Button>
                     </Grid>
                 </Grid>
