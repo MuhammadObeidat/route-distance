@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useRef, useEffect } from "react";
 
-function useUpdateEffect(effect, dependencies: Array<any> = []) {
+function useUpdateEffect(effect:any, dependencies: Array<any> = []) {
   const isInitialMount = useRef(true);
 
   useEffect(() => {
