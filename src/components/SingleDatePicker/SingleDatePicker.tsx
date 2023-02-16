@@ -28,10 +28,12 @@ const disabledDays = [
   }
 ];
 
-export default function SingleDatePicker({
-  value,
-  onDateSelection,
-}) {
+interface IProps {
+  value: Date | undefined;
+  onDateSelection: (date:Date) => void;
+}
+
+export default function SingleDatePicker({value, onDateSelection}:IProps) {
   const [anchorEl, setAnchorEl] = useState(null);
   const [defaultMonth, setDefaultMonth] = useState(today);
   const toDate = addMonths(today, 12);
@@ -39,21 +41,21 @@ export default function SingleDatePicker({
   // derive from state
   const open = Boolean(anchorEl);
   const formattedValue = isValid(value)
-    ? format(value, DD_MMM_YYY_FORMAT)
+    ? format(value!, DD_MMM_YYY_FORMAT)
     : '';
-  const handleClick = (event) => {
+  const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
   };
   const onClick = () => {
     const val = value || null;
     const pickerValue = val && isValid(val) ? val : '';
-    setDefaultMonth(pickerValue);
+    setDefaultMonth(pickerValue as Date);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
 
-  const handleSelect = (_, selectedDay) => {
+  const handleSelect = (_:any, selectedDay: Date) => {
     onDateSelection(selectedDay);
     handleClose();
   };

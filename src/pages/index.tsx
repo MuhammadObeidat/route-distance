@@ -38,6 +38,12 @@ interface ISelectedComboValue {
   destination:AutocompleteValue | null
 }
 
+interface IOptions {
+  [ComboTypesEnum.origin]:string[];
+  [ComboTypesEnum.intermediate]:string[];
+  [ComboTypesEnum.destination]:string[];
+ }
+
 type AutocompleteValue = string | null;
 
 type EventChange = SyntheticEvent<Element, Event>;
@@ -66,7 +72,7 @@ const initOptions = {
     [ComboTypesEnum.destination]:"",
   });
 
-  const [options, setOptions] = useState(initOptions);
+  const [options, setOptions] = useState<IOptions>(initOptions);
    
    const [activeCombo, setActiveCombo] = useState(ComboTypesEnum.origin);
   
@@ -106,7 +112,7 @@ const initOptions = {
     }
 
     // Submitting form
-    const handleSubmit = (e) => {
+    const handleSubmit = (e:React.SyntheticEvent) => {
       e.preventDefault();
       const {origin, intermediate, destination} = comboSelectedValue;
       const citiesName = [origin, destination, ...intermediate];
@@ -164,7 +170,7 @@ const initOptions = {
       
     }
 
-    const handleChangePassengers = (e: EventChange) => {
+    const handleChangePassengers = (e: React.ChangeEvent<HTMLInputElement>) => {
       const value = parseInt(e.target.value);
         if(value > 0){
           setPassengers(value)
@@ -177,7 +183,7 @@ const initOptions = {
      } ,[debounced]);
 
      useEffect(() => {
-      fetchCities("", (newOptions) => {
+      fetchCities("", (newOptions: string[]) => {
         setOptions({
           ...options,
           [ComboTypesEnum.origin]:newOptions,
